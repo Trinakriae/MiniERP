@@ -22,7 +22,7 @@ For those using Visual Studio 2022, MiniERP is preconfigured to run with the Pla
 Begin by cloning the MiniERP repository to your local machine:
 
 ```bash
-git clone https://github.com/yourusername/MiniERP.git
+git clone https://github.com/Trinakriae/MiniERP.git
 cd MiniERP
 ```
 
