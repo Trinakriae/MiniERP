@@ -1,0 +1,24 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FluentResults" Version="3.16.0" />
+    <PackageReference Include="FluentValidation" Version="11.11.0" />
+    <PackageReference Include="MediatR" Version="12.4.1" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="9.0.3" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="9.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MiniERP.AddressBook\MiniERP.AddressBook.Domain\MiniERP.AddressBook.Domain.csproj" />
+    <ProjectReference Include="..\MiniERP.Orders\MiniERP.Orders.Domain\MiniERP.Orders.Domain.csproj" />
+    <ProjectReference Include="..\MiniERP.Products\MiniERP.Products.Domain\MiniERP.Products.Domain.csproj" />
+    <ProjectReference Include="..\MiniERP.Users\MiniERP.Users.Domain\MiniERP.Users.Domain.csproj" />
+  </ItemGroup>
+
+</Project>

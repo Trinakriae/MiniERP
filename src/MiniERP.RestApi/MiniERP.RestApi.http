@@ -1,0 +1,6 @@
+@MiniERP.RestApi_HostAddress = http://localhost:5237
+
+GET {{MiniERP.RestApi_HostAddress}}
+Accept: application/json
+
+###

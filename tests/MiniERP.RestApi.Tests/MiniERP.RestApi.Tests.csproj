@@ -1,0 +1,43 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+
+    <IsPackable>false</IsPackable>
+    <IsTestProject>true</IsTestProject>
+    <DefineConstants>$(DefineConstants);TEST_ENVIRONMENT</DefineConstants>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="coverlet.collector" Version="6.0.0" />
+    <PackageReference Include="FluentAssertions" Version="8.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Testing" Version="8.0.14" />
+    <PackageReference Include="Microsoft.Data.Sqlite.Core" Version="9.0.3" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="9.0.3" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="9.0.3" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.8.0" />
+    <PackageReference Include="Moq" Version="4.20.72" />
+    <PackageReference Include="xunit" Version="2.5.3" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.5.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Using Include="Xunit" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\MiniERP.AddressBook\MiniERP.AddressBook.Domain\MiniERP.AddressBook.Domain.csproj" />
+    <ProjectReference Include="..\..\src\MiniERP.AddressBook\MiniERP.AddressBook.Infrastructure\MiniERP.AddressBook.Infrastructure.csproj" />
+    <ProjectReference Include="..\..\src\MiniERP.Application\MiniERP.Application.csproj" />
+    <ProjectReference Include="..\..\src\MiniERP.Orders\MiniERP.Orders.Domain\MiniERP.Orders.Domain.csproj" />
+    <ProjectReference Include="..\..\src\MiniERP.Orders\MiniERP.Orders.Infrastructure\MiniERP.Orders.Infrastructure.csproj" />
+    <ProjectReference Include="..\..\src\MiniERP.Products\MiniERP.Products.Domain\MiniERP.Products.Domain.csproj" />
+    <ProjectReference Include="..\..\src\MiniERP.Products\MiniERP.Products.Infrastructure\MiniERP.Products.Infrastructure.csproj" />
+    <ProjectReference Include="..\..\src\MiniERP.RestApi\MiniERP.RestApi.csproj" />
+    <ProjectReference Include="..\..\src\MiniERP.Users\MiniERP.Users.Domain\MiniERP.Users.Domain.csproj" />
+    <ProjectReference Include="..\..\src\MiniERP.Users\MiniERP.Users.Infrastructure\MiniERP.Users.Infrastructure.csproj" />
+  </ItemGroup>
+
+</Project>

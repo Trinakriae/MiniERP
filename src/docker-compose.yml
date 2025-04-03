@@ -1,0 +1,35 @@
+﻿version: '3.8'
+
+services:
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: sqlserver
+    environment:
+      - SA_PASSWORD=YourStrong!Passw0rd
+      - ACCEPT_EULA=Y
+    ports:
+      - "1433:1433"
+    networks:
+      - erp-network
+
+  app:
+    image: your-app-image
+    build:
+      context: .
+      dockerfile: Dockerfile
+    depends_on:
+      - sqlserver
+    environment:
+      - ConnectionStrings__AddressBookDbConnection=Server=sqlserver;Database=AddressBookDb;User Id=sa;Password=YourStrong!Passw0rd;
+      - ConnectionStrings__OrderDbConnection=Server=sqlserver;Database=OrderDb;User Id=sa;Password=YourStrong!Passw0rd;
+      - ConnectionStrings__ProductDbConnection=Server=sqlserver;Database=ProductDb;User Id=sa;Password=YourStrong!Passw0rd;
+      - ConnectionStrings__UserDbConnection=Server=sqlserver;Database=UserDb;User Id=sa;Password=YourStrong!Passw0rd;
+    ports:
+      - "5000:80"
+    networks:
+      - erp-network
+
+networks:
+  erp-network:
+    driver: bridge
+

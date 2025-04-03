@@ -1,0 +1,34 @@
+services:
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: sqlserver
+    environment:
+      - SA_PASSWORD=${SA_PASSWORD}
+      - ACCEPT_EULA=Y
+    ports:
+      - "1433:1433"
+    volumes:
+      - sqlserver-data:/var/opt/mssql
+    networks:
+      - erp-network
+  minierp.restapi:
+    image: ${DOCKER_REGISTRY-}minierprestapi
+    build:
+      context: .
+      dockerfile: src/MiniERP.RestApi/Dockerfile
+    depends_on:
+      - sqlserver
+    environment:
+      - ConnectionStrings__AddressBookDbConnection=${ADDRESSBOOK_DB_CONNECTION}
+      - ConnectionStrings__OrderDbConnection=${ORDER_DB_CONNECTION}
+      - ConnectionStrings__ProductDbConnection=${PRODUCT_DB_CONNECTION}
+      - ConnectionStrings__UserDbConnection=${USER_DB_CONNECTION}
+    networks:
+      - erp-network
+networks:
+  erp-network:
+    driver: bridge
+  
+volumes:
+  sqlserver-data:
+    driver: local  

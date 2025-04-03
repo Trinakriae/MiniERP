@@ -1,0 +1,31 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>a1fbd24b-cd1e-4017-9a4e-1b60d4ace144</UserSecretsId>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    <DockerfileContext>..\..</DockerfileContext>
+    <DockerComposeProjectPath>..\..\docker-compose.dcproj</DockerComposeProjectPath>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="9.0.3">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="9.0.3" />
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.22.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="7.3.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MiniERP.AddressBook\MiniERP.AddressBook.Infrastructure\MiniERP.AddressBook.Infrastructure.csproj" />
+    <ProjectReference Include="..\MiniERP.Application\MiniERP.Application.csproj" />
+    <ProjectReference Include="..\MiniERP.Orders\MiniERP.Orders.Infrastructure\MiniERP.Orders.Infrastructure.csproj" />
+    <ProjectReference Include="..\MiniERP.Products\MiniERP.Products.Infrastructure\MiniERP.Products.Infrastructure.csproj" />
+    <ProjectReference Include="..\MiniERP.Users\MiniERP.Users.Infrastructure\MiniERP.Users.Infrastructure.csproj" />
+  </ItemGroup>
+
+</Project>
